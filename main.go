@@ -63,8 +63,8 @@ func updateProduk(w http.ResponseWriter, r *http.Request){
 		return
 	}
 
-	var updateProduk Produk
-	err = json.NewDecoder(r.Body).Decode(&updateProduk)
+	var produkBaru Produk
+	err = json.NewDecoder(r.Body).Decode(&produkBaru)
 	if err != nil{
 		http.Error(w, "Invalid request", http.StatusBadRequest)
 		return
@@ -72,10 +72,10 @@ func updateProduk(w http.ResponseWriter, r *http.Request){
 
 	for i := range produk {
 		if produk[i].ID == id{
-			updateProduk.ID = id
-			produk[i] = updateProduk
+			produkBaru.ID = id
+			produk[i] = produkBaru
 			w.Header().Set("Content-Type", "application/json")
-			json.NewEncoder(w).Encode(updateProduk)
+			json.NewEncoder(w).Encode(produkBaru)
 		}
 	}
 }
@@ -145,7 +145,7 @@ func updateCategory(w http.ResponseWriter, r *http.Request){
 			categoryBaru.ID = id
 			category[i] = categoryBaru
 			w.Header().Set("Content-Type", "application/json")
-			json.NewEncoder(w).Encode(updateCategory)
+			json.NewEncoder(w).Encode(categoryBaru)
 		}
 	}
 }
