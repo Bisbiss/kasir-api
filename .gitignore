@@ -1,0 +1,16 @@
+.exe
+.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Go workspace file
+go.work
+go.work.sum
+
+# Build artifacts
+/kasir-api
+/kasir-api.exe
+
